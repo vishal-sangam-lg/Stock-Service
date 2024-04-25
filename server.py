@@ -8,7 +8,9 @@ app = Flask(__name__)
 CORS(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-CHATBOT_SERVICE_URL = 'http://localhost:9000/bot-response'
+CHATBOT_SERVICE_DEV = 'http://localhost:9000/bot-response'
+CHATBOT_SERVICE_PROD = 'https://financegpt-service.onrender.com/bot-response'
+CHATBOT_SERVICE_URL = CHATBOT_SERVICE_PROD
 
 @app.route('/')
 def home():
