@@ -1,12 +1,8 @@
 from flask import Flask, render_template, request, jsonify
 from main import get_stock_data, get_macd_data, get_bb_data
-from flask_cors import CORS
 import requests
 
-
 app = Flask(__name__)
-CORS(app)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 CHATBOT_SERVICE_URL = 'http://localhost:9000/bot-response'
 
