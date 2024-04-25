@@ -41,5 +41,6 @@ def api4():
             return jsonify({'Error': 'Unprocessable Entity: prompt is required field in the body of request'}), 422
 
 
-if __name__ == "__main__":
-    app.run(host="localhost", port=8000, debug=True)
+# Only for Development
+# if __name__ == "__main__":
+#     app.run(host="localhost", port=8000, debug=True)
