@@ -1,8 +1,12 @@
 from flask import Flask, render_template, request, jsonify
 from main import get_stock_data, get_macd_data, get_bb_data
+from flask_cors import CORS
 import requests
 
+
 app = Flask(__name__)
+CORS(app)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 CHATBOT_SERVICE_URL = 'http://localhost:9000/bot-response'
 
@@ -41,6 +45,6 @@ def api4():
             return jsonify({'Error': 'Unprocessable Entity: prompt is required field in the body of request'}), 422
 
 
-# Only for Development
+# Only for Dev
 # if __name__ == "__main__":
 #     app.run(host="localhost", port=8000, debug=True)
